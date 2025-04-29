@@ -10,7 +10,6 @@ const Drawings = () => {
       <h2>drawings Section</h2>
       <div className="all">
         {drawings.map((project: any) => {
-          console.log(project)
           return <Project key={project.id} project={project} />;
         })}
       </div>
