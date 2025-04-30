@@ -1,30 +1,69 @@
 import React from "react";
 
+const items = [
+  {
+    title: "The End We Start From (Supervising)",
+    year: "2022",
+    description: "Hera / Sunnymarch",
+  },
+  {
+    title: "The Gold",
+    year: "2022",
+    description: "BBC / Paramount",
+  },
+  {
+    title: "Extraordinary",
+    year: "2021",
+    description: "Disney+",
+  },
+  {
+    title: "Tuesday",
+    year: "2021",
+    description: "A24",
+  },
+  {
+    title: "Hanna - Season 2",
+    year: "2019",
+    description: "Amazon / NBC Universal",
+  },
+  {
+    title: "Top Boy (Jamaica)",
+    year: "2018",
+    description: "Netflix",
+  },
+];
+
+const Item = ({ item, id }: any) => {
+  return id % 2 === 0 ? (
+    <div className="mb-10 flex w-full items-center justify-between">
+      <div className="w-5/12 text-right">
+        <h3 className="text-lg font-bold">{item.title}</h3>
+        <span className="text-sm text-gray-400">{item.year}</span>
+        <p className="text-gray-600">{item.description}</p>
+      </div>
+      <div className="z-10 h-6 w-6 rounded-full bg-blue-600 border-4 border-white shadow-md"></div>
+      <div className="w-5/12"></div>
+    </div>
+  ) : (
+    <div className="mb-10 flex w-full items-center justify-between">
+      <div className="w-5/12"></div>
+      <div className="z-10 h-6 w-6 rounded-full bg-green-600 border-4 border-white shadow-md"></div>
+      <div className="w-5/12 text-left">
+        <h3 className="text-lg font-bold">{item.title}</h3>
+        <span className="text-sm text-gray-400">{item.year}</span>
+        <p className="text-gray-600">{item.description}</p>
+      </div>
+    </div>
+  );
+};
+
 const Experience = () => {
   return (
-    <section id="experience" className="h-96 p-4 w-full ">
-      <h2>experience Section</h2>
-      <div className="flex flex-col justify-center">
-        <div className="flex justify-center">
-          <p className="border p-2 m-2">2022</p>
-          <div className="border relative">
-            <div className="absolute dot top-4"></div>
-          </div>
-          <p className="m-2">HELLO</p>
-        </div>
-        <div className="flex justify-center">
-          <p className="border p-2 m-2">2023</p>
-          <div className="border relative">
-            <div className="absolute dot top-4"></div>
-          </div>
-          <p className="m-2">HELLO</p>
-        </div>
-        <div className="flex justify-center">
-          <p className="border p-2 m-2">2024</p>
-          <span className="border"></span>
-          <p className="m-2">HELLO</p>
-        </div>
-      </div>
+    <section id="experience" className="relative mx-auto w-full max-w-4xl">
+      <div className="absolute left-1/2 top-0 h-full w-1 -translate-x-1/2 bg-gray-300 rounded-md"></div>
+      {items.map((item, id) => {
+        return <Item item={item} id={id} key={id} />;
+      })}
     </section>
   );
 };
