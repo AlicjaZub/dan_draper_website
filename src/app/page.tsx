@@ -7,6 +7,7 @@ import { Drawings } from "@/components/Drawings";
 import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
 import { CV } from "@/components/CV";
+import { Skills } from "@/components/Skills";
 
 export default function Page() {
   const [allProjects, setAllProjects] = useState<any>([]);
@@ -21,7 +22,8 @@ export default function Page() {
       <Home />
       <Projects projects={allProjects} />
       <Drawings />
-      {/* <Experience /> */}
+      <Experience />
+      <Skills />
       <Contact />
       <CV />
     </main>
