@@ -24,7 +24,7 @@ jobs:
       - name: Build Next.js app
         run: npm run build
 
-      # - name: Run tests (optional)
+      # - name: Run tests
       #   run: npm test
 
       - name: Upload artifact
