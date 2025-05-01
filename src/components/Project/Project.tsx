@@ -11,6 +11,7 @@ const Project = (project: ProjectType | DrawingType) => {
         <h3 className="title">{project.title}</h3>
       </div>
       <img
+        loading="lazy"
         src={`/${project.image}.jpg`}
         width="200"
         height="200"
