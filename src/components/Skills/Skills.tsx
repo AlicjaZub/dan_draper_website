@@ -38,9 +38,9 @@ const Skills = () => {
   return (
     <section id="skills" className="container mx-auto px-6 py-12 mt-20">
       <div className="grid grid-cols-2 md:grid-cols-6 gap-8 ">
-        {skills.map((skill) => (
+        {skills.map((skill, id) => (
           <motion.div
-            key={skill.name}
+            key={id}
             className={`flex justify-center items-center flex-col text-center w-36 h-36 ${skill.bgColor} rounded-full`}
             initial={{ opacity: 0, scale: 0.5 }}
             animate={{ opacity: 1, scale: 1 }}

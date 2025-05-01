@@ -9,13 +9,15 @@ import { Skills } from "@/components/Skills";
 
 export default function Page() {
   return (
-    <main className="flex min-h-screen flex-col items-center m-16">
+    <main className="flex min-h-screen flex-col items-center">
       <Home />
-      <Projects />
-      {/* <hr className="border-gray-500 m-8 w-full" /> */}
-      <Drawings />
-      <Experience />
-      <Skills />
+      <div className="mx-16">
+        <Projects />
+        {/* <hr className="border-gray-500 m-8 w-full" /> */}
+        <Drawings />
+        <Experience />
+        <Skills />
+      </div>
       <Contact />
       <CV />
     </main>
