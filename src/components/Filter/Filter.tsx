@@ -2,37 +2,36 @@ import React, { useEffect } from "react";
 
 const Filter = ({ setActiveGenre, activeGenre, setFiltered, all }: any) => {
   useEffect(() => {
-    if (activeGenre === "all") {
-      setFiltered(all);
-      return;
-    }
-    const filtered = all.filter((project: any) =>
-      project.type.includes(activeGenre)
-    );
+    const updatedFiltered =
+      activeGenre === "all"
+        ? all
+        : all.filter((project: any) => project.type.includes(activeGenre));
 
-    setFiltered(filtered);
-  }, [activeGenre, all, setFiltered]);
+    setFiltered(updatedFiltered);
+  }, [activeGenre, all]);
+
+  const genres = [
+    { code: "all", title: "All" },
+    { code: "TV", title: "Film/TV" },
+    { code: "CM", title: "Commercials" },
+    { code: "MV", title: "Music Videos" },
+    { code: "SH", title: "Shorts" },
+  ];
 
   return (
     <div className="filter-container">
-      <button
-        className={activeGenre === "all" ? "active" : ""}
-        onClick={() => setActiveGenre("all")}
-      >
-        All
-      </button>
-      <button
-        className={activeGenre === "tv" ? "active" : ""}
-        onClick={() => setActiveGenre("tv")}
-      >
-        Film/TV
-      </button>
-      <button
-        className={activeGenre === "music" ? "active" : ""}
-        onClick={() => setActiveGenre("music")}
-      >
-        Music
-      </button>
+      {genres.map(({ code, title }) => {
+        return (
+          <button
+            key={code}
+            className={`filter-button ${activeGenre === code ? "active" : ""}`}
+            onClick={() => setActiveGenre(code)}
+            aria-pressed={activeGenre === code}
+          >
+            {title}
+          </button>
+        );
+      })}
     </div>
   );
 };
