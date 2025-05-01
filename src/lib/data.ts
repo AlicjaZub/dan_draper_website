@@ -6,7 +6,7 @@ export const getProjects = () => {
 };
 
 export const getProject = (id: number) => {
-  return projects.filter((project) => project.id === id);
+  return projects.filter((project) => project.id === id)[0];
 };
 
 export const getDrawings = () => {
