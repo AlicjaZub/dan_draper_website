@@ -36,8 +36,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-4 w-full px-16">
-      <h1 className="text-xl text-center mb-4">Projects</h1>
+    <section id="projects" className="py-8 w-full px-16">
       <Filter
         activeGenre={activeGenre}
         setActiveGenre={setActiveGenre}

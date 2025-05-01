@@ -15,16 +15,26 @@
 * {
   font-family: "Karla", Arial, Helvetica, sans-serif;
   box-sizing: border-box;
-  /* text-transform: uppercase; */
 }
 
 a,
+h3,
+h1,
+h5,
+h2,
+button,
+p,
+footer,
 .filter-button {
-  padding: 10px 20px 8px 20px;
   color: #888;
   font-size: 11px;
   letter-spacing: 3px;
   text-decoration: none;
+  text-transform: uppercase;
+}
+
+a {
+  padding: 10px 20px 8px 20px;
 }
 
 body {
@@ -118,12 +128,13 @@ img {
 }
 
 .overlay {
+  border-radius: 1rem;
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(0, 0, 0, 0.75); /* semi-transparent black */
+  background: rgba(0, 0, 0, 0.75);
   color: #fff;
   display: flex;
   align-items: center;
