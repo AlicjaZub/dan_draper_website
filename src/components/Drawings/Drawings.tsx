@@ -12,8 +12,8 @@ export type DrawingType = {
 
 const Drawings = () => {
   return (
-    <section id="drawings" className="w-full p-4">
-      <h2>drawings Section</h2>
+    <section id="drawings" className="w-full">
+      <h1 className="text-xl text-center mt-4 mb-10">DRAWINGS</h1>
       <div className="all">
         {drawings.map((project: DrawingType) => {
           return <Project key={project.id} {...project} />;
