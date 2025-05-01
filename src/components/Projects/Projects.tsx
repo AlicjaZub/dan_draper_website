@@ -2,19 +2,41 @@ import React, { useEffect, useState } from "react";
 import { Filter } from "@/components/Filter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Project } from "@/components/Project";
+import { getProjects } from "@/lib/data";
 
-const Projects = ({ projects }: any) => {
-  const [allProjects, setAllProjects] = useState<any>([]);
-  const [filtered, setFiltered] = useState<any>([]);
+export type ProjectType = {
+  id: number;
+  title: string;
+  image: string;
+  role: string;
+  secondary_role: string;
+  name: string;
+  collaborator_title: string;
+  collaborator_name: string;
+  company: string;
+  notes: string;
+  video: string;
+  type: string;
+  image1: string;
+  image2: string;
+  image3: string;
+  image4: string;
+  image5: string;
+};
+
+const Projects = () => {
+  const [allProjects, setAllProjects] = useState<ProjectType[]>([]);
+  const [filtered, setFiltered] = useState<ProjectType[]>([]);
   const [activeGenre, setActiveGenre] = useState("all");
 
   useEffect(() => {
+    const projects = getProjects() as ProjectType[];
     setAllProjects(projects);
     setFiltered(projects);
-  }, [projects]);
+  }, []);
 
   return (
-    <section id="projects" className="p-4 w-full">
+    <section id="projects" className="py-4 w-full px-16">
       <h1 className="text-xl text-center mb-4">Projects</h1>
       <Filter
         activeGenre={activeGenre}
@@ -24,8 +46,8 @@ const Projects = ({ projects }: any) => {
       />
       <motion.div layout className="flex w-full all">
         <AnimatePresence>
-          {filtered.map((project: any) => {
-            return <Project key={project.id} project={project} />;
+          {filtered.map((project: ProjectType) => {
+            return <Project key={project.id} {...project} />;
           })}
         </AnimatePresence>
       </motion.div>

@@ -4,7 +4,7 @@
 
 :root {
   --foreground-rgb: 255, 255, 255;
-  --background:  34, 34, 34;
+  --background: 34, 34, 34;
   --main: 67, 162, 220;
 }
 
@@ -18,8 +18,9 @@ body {
   background: rgb(var(--background));
 }
 
-.navbar, footer {
-  background-color: #18191b
+.navbar,
+footer {
+  background-color: #18191b;
 }
 
 @layer utilities {
@@ -88,10 +89,10 @@ img {
 }
 
 .container img {
-  width: 100%; /* Make the image fill the container */
-  transition: transform 1s ease; /* Add transition effect */
+  width: 100%;
+  transition: transform 1s ease;
 }
 
 .container:hover img {
-  transform: scale(1.2); /* Zoom in the image on hover */
+  transform: scale(1.2);
 }

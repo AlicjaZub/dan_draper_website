@@ -1,14 +1,14 @@
-import projects from './projects.json'
-import drawings from "./drawings.json"
+import projects from "./projects.json";
+import drawings from "./drawings.json";
 
 export const getProjects = () => {
-	return projects
-}
+  return projects;
+};
 
 export const getProject = (id: number) => {
-	return projects.filter(project => project.id === id)
-}
+  return projects.filter((project) => project.id === id);
+};
 
 export const getDrawings = () => {
-	return drawings;
-}
+  return drawings;
+};
