@@ -1,26 +1,32 @@
 [
   {
     "id": 1,
-    "image": "drawings/drawing1"
+    "image": "drawings/drawing1",
+    "title": "Drawing"
   },
   {
     "id": 2,
-    "image": "drawings/drawing2"
+    "image": "drawings/drawing2",
+    "title": "Drawing"
   },
   {
     "id": 3,
-    "image": "drawings/drawing3"
+    "image": "drawings/drawing3",
+    "title": "Drawing"
   },
   {
     "id": 4,
-    "image": "drawings/drawing4"
+    "image": "drawings/drawing4",
+    "title": "Drawing"
   },
   {
     "id": 5,
-    "image": "drawings/drawing5"
+    "image": "drawings/drawing5",
+    "title": "Drawing"
   },
   {
     "id": 6,
-    "image": "drawings/drawing6"
+    "image": "drawings/drawing6",
+    "title": "Drawing"
   }
 ]

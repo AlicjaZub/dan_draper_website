@@ -7,6 +7,7 @@ const drawings: DrawingType[] = getDrawings();
 export type DrawingType = {
   id: number;
   image: string;
+  title: string;
 };
 
 const Drawings = () => {
