@@ -1,3 +1,4 @@
+import { motion } from "framer-motion";
 import { getProject } from "@/lib/data";
 import React, { useEffect, useState } from "react";
 import { ProjectType } from "../Projects/Projects";
@@ -13,10 +14,17 @@ const ProjectCard = ({ isOpen, onClose, children, id }: any) => {
   if (!isOpen) return null;
   return (
     <div
-      className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-30"
+      className="fixed inset-0 bg-black/40 backdrop-blur-lg flex items-center justify-center z-30"
       onClick={onClose}
     >
-      <div
+    <motion.div
+      initial={{ opacity: 0, y: 20, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 20, scale: 0.96 }}
+      transition={{
+        duration: 2.0,
+        ease: [0.16, 1, 0.3, 1],
+      }}
         className="bg-black rounded-2xl shadow-xl p-6 relative z-50"
         onClick={(e) => e.stopPropagation()}
       >
@@ -58,7 +66,7 @@ const ProjectCard = ({ isOpen, onClose, children, id }: any) => {
             )}
           </div>
         </div>
-      </div>
+      </motion.div>
     </div>
   );
 };

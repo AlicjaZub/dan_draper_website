@@ -47,7 +47,7 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
             whileHover={{
               scale: 1.1,
-              backgroundColor: "rgb(55 48 163)",
+              // backgroundColor: "rgb(55 48 163)",
             }}
           >
             {skill.image ? <img src="vectorworks_badge.png"></img> : ""}

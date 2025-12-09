@@ -40,6 +40,8 @@ a {
 body {
   color: rgb(var(--foreground-rgb));
   background: rgb(var(--background));
+  margin: 0;
+  padding: 0;
 }
 
 .navbar,
@@ -153,3 +155,10 @@ button.active {
   font-size: 1.5rem;
   text-align: center;
 }
+
+@layer utilities {
+  .ease-premium { transition-timing-function: cubic-bezier(0.16,1,0.3,1); }
+  .ease-soft    { transition-timing-function: cubic-bezier(0.4,0,0.2,1); }
+  .ease-bounce  { transition-timing-function: cubic-bezier(0.68,-0.55,0.27,1.55); }
+}
+
