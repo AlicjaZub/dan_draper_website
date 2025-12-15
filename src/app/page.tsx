@@ -11,7 +11,7 @@ export default function Page() {
   return (
     <main className="flex min-h-screen flex-col items-center">
       <Home />
-      <div className="mx-16">
+      <div className="mx-4 md:mx-16">
         <Projects />
         {/* <hr className="border-gray-500 m-8 w-full" /> */}
         <Drawings />

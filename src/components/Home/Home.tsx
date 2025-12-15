@@ -9,26 +9,47 @@ const settings = {
   speed: 500,
   waitForAnimate: false,
 };
+
 const Home = () => {
   return (
-    <section id="home" className="w-full relative">
+    <section id="home" className="relative w-full h-screen overflow-hidden">
       <Slider {...settings}>
         <div>
-          <video autoPlay muted loop className="w-full">
+          <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-screen object-cover"
+          >
             <source src="/test.mp4" type="video/mp4" />
             Your browser does not support HTML5 video.
           </video>
         </div>
-        {/* <div>
-          <h3>2</h3>
-        </div>
-        <div>
-          <h3>3</h3>
-        </div> */}
       </Slider>
-      <div className="absolute text-white top-1/2 left-36">
-        <p>Daniel Draper</p>
-        <p>London Art Director</p>
+
+      {/* Text Overlay */}
+      <div
+        className="
+          absolute
+          top-1/2
+          left-1/2
+          -translate-x-1/2
+          -translate-y-1/2
+          text-center
+          text-white
+          px-4
+          md:left-12
+          md:translate-x-0
+          md:text-left
+        "
+      >
+        <p className="text-2xl md:text-4xl font-semibold">
+          Daniel Draper
+        </p>
+        <p className="text-sm md:text-lg tracking-wide">
+          London Art Director
+        </p>
       </div>
     </section>
   );

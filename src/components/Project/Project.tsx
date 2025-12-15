@@ -31,18 +31,11 @@ const Project = (project: ProjectType | DrawingType) => {
         />
       </motion.div>
       {showPopup && (
-        // <motion.div
-        //   initial={{ opacity: 0 }}
-        //   animate={{ opacity: 1 }}
-        //   exit={{ opacity: 0 }}
-        //   transition={{ duration: 0.3 }}
-        // >
         <ProjectCard
           isOpen={showPopup}
           onClose={() => setShowPopup(false)}
           id={project.id}
         />
-        // </motion.div>
       )}
     </div>
   );

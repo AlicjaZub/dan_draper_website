@@ -36,14 +36,14 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-8 w-full px-16">
+    <section id="projects" className="py-8 w-full px-2 md:px-16">
       <Filter
         activeGenre={activeGenre}
         setActiveGenre={setActiveGenre}
         all={allProjects}
         setFiltered={setFiltered}
       />
-      <motion.div layout className="flex w-full all">
+      <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 w-full gap-6">
         <AnimatePresence>
           {filtered.map((project: ProjectType) => {
             return <Project key={project.id} {...project} />;
