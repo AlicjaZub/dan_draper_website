@@ -12,3 +12,8 @@ export const getProject = (id: number) => {
 export const getDrawings = () => {
   return drawings;
 };
+
+export const getDrawing = (id: number) => {
+  return drawings.filter((drawing) => drawing.id === id)[0];
+};
+

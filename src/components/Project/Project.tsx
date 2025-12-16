@@ -35,6 +35,7 @@ const Project = (project: ProjectType | DrawingType) => {
           isOpen={showPopup}
           onClose={() => setShowPopup(false)}
           id={project.id}
+          type={"type" in project ? "project" : "drawing"} 
         />
       )}
     </div>

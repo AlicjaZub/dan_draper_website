@@ -1,16 +1,37 @@
 import { motion } from "framer-motion";
-import { getProject } from "@/lib/data";
+import { getProject, getDrawing } from "@/lib/data";
 import React, { useEffect, useState } from "react";
 import { ProjectType } from "../Projects/Projects";
+import { DrawingType } from "../Drawings/Drawings";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Thumbs } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/thumbs";
 
-const ProjectCard = ({ isOpen, onClose, children, id }: any) => {
-  const [currentProject, setCurrentProject] = useState<ProjectType>();
+const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
+  const [currentProject, setCurrentProject] = useState<ProjectType | null>(null);
+  const [currentDrawing, setCurrentDrawing] = useState<DrawingType | null>(null);
+  const [currentImages, setCurrentImages] = useState<String[] | null>([]);
+  const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
+
+
 
   useEffect(() => {
-    const project = getProject(id);
-    setCurrentProject(project as ProjectType);
-  }, []);
+    if (type === "drawing") {
+      setCurrentDrawing(getDrawing(id) as DrawingType);
+    } else {
+      setCurrentProject(getProject(id) as ProjectType);
+    }
+  }, [id, type]);
 
+
+  useEffect(() => {
+    if (currentProject) {
+      setCurrentImages([currentProject.image1, currentProject.image2, currentProject.image3, currentProject.image4, currentProject.image5].filter(Boolean) as string[])
+    }
+  }, [currentProject]);
+
+  console.log(currentImages)
   if (!isOpen) return null;
   return (
     <div
@@ -34,29 +55,98 @@ const ProjectCard = ({ isOpen, onClose, children, id }: any) => {
         >
           ✕
         </button>
+        {type === "project" && currentProject ?
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 rounded-2xl shadow-lg overflow-hidden">
+            <div className="flex items-center justify-center bg-black">
+              <div className="w-full">
+                <Swiper
+                  modules={[Thumbs]}
+                  thumbs={{ swiper: thumbsSwiper }}
+                  className="w-full h-96 mb-4"
+                >
+                  {currentProject.video && (
+                    <SwiperSlide>
+                      <div className="w-full h-full flex justify-center items-center bg-black">
+                        <iframe
+                          width="100%"
+                          height="100%"
+                          src={`https://www.youtube.com/embed/${currentProject.video}`}
+                          title="Video"
+                          allowFullScreen
+                        />
+                      </div>
+                    </SwiperSlide>
+                  )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6 rounded-2xl shadow-lg overflow-hidden">
-          <div className="flex items-center justify-center bg-black">
-            <img
-              src={`${currentProject?.image}.jpg`}
-              alt={currentProject?.title}
-              className="object-cover h-full w-full max-h-96"
-            />
-          </div>
+                  {currentImages?.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <img
+                        src={`${img}.jpg`}
+                        alt={`Slide ${i + 1}`}
+                        className="object-cover w-full h-full"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
 
-          <div className="p-6 space-y-4">
-            <h1 className="text-2xl font-bold text-gray-800">
-              {currentProject?.title}
-            </h1>
-            <h3 className="text-lg text-gray-600">{currentProject?.title}</h3>
-            {currentProject?.company && (
-              <p className="text-sm text-gray-500 mt-4">
-                {currentProject?.name}
+                <Swiper
+                  onSwiper={setThumbsSwiper}
+                  slidesPerView={4}
+                  spaceBetween={10}
+                  className="w-full h-24"
+                >
+                  {currentProject.video && (
+                    <SwiperSlide>
+                      <img
+                        src={`https://img.youtube.com/vi/${currentProject.video}/hqdefault.jpg`}
+                        alt="Video thumbnail"
+                        className="object-cover w-full h-full cursor-pointer"
+                      />
+                    </SwiperSlide>
+                  )}
+
+                  {currentImages?.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <img
+                        src={`${img}.jpg`}
+                        alt={`Thumbnail ${i + 1}`}
+                        className="object-cover w-full h-full cursor-pointer border-2 border-gray-300"
+                      />
+                    </SwiperSlide>
+                  ))}
+                </Swiper>
+              </div>
+              <img
+                src={`${currentProject.image}.jpg`}
+                alt={currentProject.title}
+                className="object-cover h-full w-full max-h-96"
+              />
+            </div>
+
+            <div className="p-6 space-y-4">
+              <h1 className="text-2xl font-bold text-gray-500">
+                {currentProject.title}
+              </h1>
+              <p className="text-sm text-gray-500">Role: {currentProject.role}</p>
+              <p className="text-sm text-gray-500">
+                {currentProject.secondary_role}: {currentProject.name}
               </p>
-            )}
+              <p className="text-sm text-gray-500">Company: {currentProject.company}</p>
+              {currentProject.notes && <p className="text-sm text-gray-500">{currentProject.notes}</p>}
+            </div>
           </div>
-        </div>
+          : <div className="grid grid-cols-1 rounded-3xl shadow-lg overflow-hidden">
+            <div className="flex items-center justify-center bg-black">
+              <img
+                src={`${currentDrawing?.image}.jpg`}
+                alt={currentDrawing?.title}
+                className="object-cover h-full w-full max-h-[650px]"
+              />
+            </div>
+          </div>
+        }
       </motion.div>
+
     </div>
   );
 };

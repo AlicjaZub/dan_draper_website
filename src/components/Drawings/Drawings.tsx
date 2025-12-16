@@ -2,12 +2,13 @@ import React from "react";
 import { getDrawings } from "@/lib/data";
 import { Project } from "@/components/Project";
 
-const drawings: DrawingType[] = getDrawings();
+const drawings = getDrawings() as DrawingType[];
 
 export type DrawingType = {
   id: number;
   image: string;
   title: string;
+  kind: "project";
 };
 
 const Drawings = () => {

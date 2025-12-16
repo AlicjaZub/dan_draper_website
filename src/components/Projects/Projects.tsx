@@ -22,6 +22,7 @@ export type ProjectType = {
   image3: string;
   image4: string;
   image5: string;
+  kind: "project";
 };
 
 const Projects = () => {
