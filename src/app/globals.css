@@ -67,6 +67,7 @@ footer {
 .navAnimation {
   height: 25px;
   transition: transform 0.5s ease;
+  text-align: center;
 }
 
 .navAnimation:hover {
@@ -144,17 +145,17 @@ button.active {
 .overlay {
   border-radius: 1rem;
   position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: rgba(0, 0, 0, 0.75);
+  inset: 0;
+  background: rgba(0,0,0,0.75);
   color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 2rem;
+  text-align: center;
   opacity: 0;
   transition: opacity 1s ease;
+  word-break: break-word;
 }
 
 .container:hover .overlay {
@@ -166,6 +167,7 @@ button.active {
 .title {
   font-size: 1.5rem;
   text-align: center;
+  text-wrap: wrap;
 }
 
 @layer utilities {

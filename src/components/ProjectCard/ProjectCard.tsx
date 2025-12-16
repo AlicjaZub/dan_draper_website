@@ -17,14 +17,14 @@ const ProjectCard = ({ isOpen, onClose, children, id }: any) => {
       className="fixed inset-0 bg-black/40 backdrop-blur-lg flex items-center justify-center z-30"
       onClick={onClose}
     >
-    <motion.div
-      initial={{ opacity: 0, y: 20, scale: 0.96 }}
-      animate={{ opacity: 1, y: 0, scale: 1 }}
-      exit={{ opacity: 0, y: 20, scale: 0.96 }}
-      transition={{
-        duration: 2.0,
-        ease: [0.16, 1, 0.3, 1],
-      }}
+      <motion.div
+        initial={{ opacity: 0, y: 20, scale: 0.96 }}
+        animate={{ opacity: 1, y: 0, scale: 1 }}
+        exit={{ opacity: 0, y: 20, scale: 0.96 }}
+        transition={{
+          duration: 2.0,
+          ease: [0.16, 1, 0.3, 1],
+        }}
         className="bg-black rounded-2xl shadow-xl p-6 relative z-50"
         onClick={(e) => e.stopPropagation()}
       >
@@ -49,16 +49,6 @@ const ProjectCard = ({ isOpen, onClose, children, id }: any) => {
               {currentProject?.title}
             </h1>
             <h3 className="text-lg text-gray-600">{currentProject?.title}</h3>
-
-            <div className="space-y-2">
-              {/* {currentProject?.details.map((item, index) => (
-                <div key={index} className="flex justify-between text-gray-700">
-                  <span>{item.label}</span>
-                  <span className="font-semibold">{item.value}</span>
-                </div>
-              ))} */}
-            </div>
-
             {currentProject?.company && (
               <p className="text-sm text-gray-500 mt-4">
                 {currentProject?.name}

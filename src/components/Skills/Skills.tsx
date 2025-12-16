@@ -1,6 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { SiAdobephotoshop } from "react-icons/si";
+import { SiAdobephotoshop, SiRhinoceros, SiSketchup } from "react-icons/si";
+import { FaPencilAlt } from "react-icons/fa";
+import { GiJapan } from "react-icons/gi";
 
 const skills = [
   {
@@ -9,12 +11,12 @@ const skills = [
   },
   {
     name: "Rhino 3d",
-    icon: <SiAdobephotoshop size={40} />,
+    icon: <SiRhinoceros size={40} />,
     bgColor: "bg-blue-600",
   },
   {
     name: "Sketchup",
-    icon: <SiAdobephotoshop size={40} />,
+    icon: <SiSketchup size={40} />,
     bgColor: "bg-orange-600",
   },
   {
@@ -24,12 +26,12 @@ const skills = [
   },
   {
     name: "Hand Drawing",
-    icon: <SiAdobephotoshop size={40} />,
+    icon: <FaPencilAlt size={40} />,
     bgColor: "bg-purple-600",
   },
   {
     name: "Japanese",
-    icon: <SiAdobephotoshop size={40} />,
+    icon: <GiJapan size={40} />,
     bgColor: "bg-purple-600",
   },
 ];
@@ -37,7 +39,7 @@ const skills = [
 const Skills = () => {
   return (
     <section id="skills" className="container mx-auto px-6 py-12 mt-20">
-      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 ">
+      <div className="grid grid-cols-2 md:grid-cols-6 gap-8 justify-items-center">
         {skills.map((skill, id) => (
           <motion.div
             key={id}

@@ -36,7 +36,7 @@ const Projects = () => {
   }, []);
 
   return (
-    <section id="projects" className="py-8 w-full px-2 md:px-16">
+    <section id="projects" className="py-4 md:py-8 w-full px-2 md:px-16">
       <Filter
         activeGenre={activeGenre}
         setActiveGenre={setActiveGenre}
