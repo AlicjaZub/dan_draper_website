@@ -80,13 +80,25 @@ footer {
   background-color: rgb(var(--main));
 }
 
-.filter-container button {
-  margin-right: 2rem;
-  margin-bottom: 2rem;
-  min-width: 5rem;
+
+.filter-button-mobile {
+  /* margin-right: 1rem; */
+  margin-bottom: 0.75rem;
+  min-width: 2.5rem;
   padding: 0.5rem 1rem;
   border: none;
   cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .filter-button-full {
+    margin-right: 2rem;
+    margin-bottom: 2rem;
+    min-width: 4rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    cursor: pointer;
+  }
 }
 
 button.active {

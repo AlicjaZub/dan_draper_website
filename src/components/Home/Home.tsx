@@ -12,21 +12,22 @@ const settings = {
 
 const Home = () => {
   return (
-    <section id="home" className="relative w-full h-screen overflow-hidden">
-      <Slider {...settings}>
-        <div>
-          <video
-            autoPlay
-            muted
-            loop
-            playsInline
-            className="w-full h-screen object-cover"
-          >
-            <source src="/test.mp4" type="video/mp4" />
-            Your browser does not support HTML5 video.
-          </video>
-        </div>
-      </Slider>
+      <section id="home" className="relative w-full overflow-hidden">
+        <Slider {...settings}>
+          <div className="w-full h-full">
+            <video
+              autoPlay
+              muted
+              loop
+              playsInline
+              className="w-full h-full object-cover md:h-screen"
+            >
+              <source src="/test.mp4" type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video>
+          </div>
+        </Slider>
+
 
       {/* Text Overlay */}
       <div
@@ -42,6 +43,7 @@ const Home = () => {
           md:left-12
           md:translate-x-0
           md:text-left
+          md:text-sm
         "
       >
         <p className="text-2xl md:text-4xl font-semibold">

@@ -19,12 +19,12 @@ const Filter = ({ setActiveGenre, activeGenre, setFiltered, all }: any) => {
   ];
 
   return (
-    <div className="filter-container">
+    <div className="filter-container flex flex-wrap">
       {genres.map(({ code, title }) => {
         return (
           <button
             key={code}
-            className={`filter-button ${activeGenre === code ? "active" : ""}`}
+            className={`filter-button-mobile filter-button-full filter-button ${activeGenre === code ? "active" : ""} `}
             onClick={() => setActiveGenre(code)}
             aria-pressed={activeGenre === code}
           >
