@@ -46,10 +46,10 @@ const Home = () => {
           md:text-sm
         "
       >
-        <p className="text-2xl md:text-4xl font-semibold">
+        <p className="text-2xl md:text-4xl font-semibold intro">
           Daniel Draper
         </p>
-        <p className="text-sm md:text-lg tracking-wide">
+        <p className="text-sm md:text-lg tracking-wide intro">
           London Art Director
         </p>
       </div>

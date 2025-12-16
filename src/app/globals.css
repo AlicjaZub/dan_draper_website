@@ -23,7 +23,8 @@ h1,
 h5,
 h2,
 button,
-p,
+/* p, */
+.intro,
 footer,
 .filter-button {
   color: #888;
