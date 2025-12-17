@@ -60,6 +60,8 @@ const Skills = () => {
             {skill.image ? (
               <img
                 src="vectorworks_badge.png"
+                loading="lazy"
+                decoding="async"
                 className="
                 w-full h-full object-contain
                 drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]
@@ -83,11 +85,13 @@ const Skills = () => {
                     shadow-[inset_0_2px_6px_rgba(255,255,255,0.08),inset_0_-6px_12px_rgba(0,0,0,0.9)]
                   "
                 >
-                  <div className="
+                  <div
+                    className="
                     absolute inset-0 rounded-full
                     bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]
                     pointer-events-none
-                  " />
+                  "
+                  />
 
                   {skill.icon && (
                     <div className="text-3xl sm:text-4xl translate-z-20">

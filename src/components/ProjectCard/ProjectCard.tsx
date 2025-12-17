@@ -1,3 +1,4 @@
+"use client";
 import { motion } from "framer-motion";
 import { getProject, getDrawing } from "@/lib/data";
 import React, { useEffect, useState } from "react";
@@ -9,12 +10,14 @@ import "swiper/css";
 import "swiper/css/thumbs";
 
 const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
-  const [currentProject, setCurrentProject] = useState<ProjectType | null>(null);
-  const [currentDrawing, setCurrentDrawing] = useState<DrawingType | null>(null);
+  const [currentProject, setCurrentProject] = useState<ProjectType | null>(
+    null
+  );
+  const [currentDrawing, setCurrentDrawing] = useState<DrawingType | null>(
+    null
+  );
   const [currentImages, setCurrentImages] = useState<String[] | null>([]);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
-
-
 
   useEffect(() => {
     if (type === "drawing") {
@@ -24,14 +27,20 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
     }
   }, [id, type]);
 
-
   useEffect(() => {
     if (currentProject) {
-      setCurrentImages([currentProject.image1, currentProject.image2, currentProject.image3, currentProject.image4, currentProject.image5].filter(Boolean) as string[])
+      setCurrentImages(
+        [
+          currentProject.image1,
+          currentProject.image2,
+          currentProject.image3,
+          currentProject.image4,
+          currentProject.image5,
+        ].filter(Boolean) as string[]
+      );
     }
   }, [currentProject]);
 
-  console.log(currentImages)
   if (!isOpen) return null;
   return (
     <div
@@ -51,11 +60,11 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
       >
         <button
           onClick={onClose}
-          className="absolute top-2 right-3 text-gray-500 hover:text-black"
+          className="absolute top-2 right-3 text-3xl text-gray-500 hover:text-black"
         >
           ✕
         </button>
-        {type === "project" && currentProject ?
+        {type === "project" && currentProject && (
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 rounded-2xl shadow-lg overflow-hidden">
             <div className="flex items-center justify-center bg-black">
               <div className="w-full">
@@ -78,15 +87,23 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                     </SwiperSlide>
                   )}
 
-                  {currentImages?.map((img, i) => (
-                    <SwiperSlide key={i}>
-                      <img
-                        src={`${img}.jpg`}
-                        alt={`Slide ${i + 1}`}
-                        className="object-cover w-full h-full"
-                      />
-                    </SwiperSlide>
-                  ))}
+                  {currentImages &&
+                    currentImages?.map(
+                      (img, i) => (
+                        console.log("ORIGINAL SWIPERIMAGE", img),
+                        (
+                          <SwiperSlide key={i}>
+                            <img
+                              src={`${img}.jpg`}
+                              loading="lazy"
+                              decoding="async"
+                              alt={`Slide ${i + 1}`}
+                              className="object-cover w-full h-full"
+                            />
+                          </SwiperSlide>
+                        )
+                      )
+                    )}
                 </Swiper>
 
                 <Swiper
@@ -99,54 +116,68 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                     <SwiperSlide>
                       <img
                         src={`https://img.youtube.com/vi/${currentProject.video}/hqdefault.jpg`}
+                        loading="lazy"
+                        decoding="async"
                         alt="Video thumbnail"
                         className="object-cover w-full h-full cursor-pointer"
                       />
                     </SwiperSlide>
                   )}
 
-                  {currentImages?.map((img, i) => (
-                    <SwiperSlide key={i}>
-                      <img
-                        src={`${img}.jpg`}
-                        alt={`Thumbnail ${i + 1}`}
-                        className="object-cover w-full h-full cursor-pointer border-2 border-gray-300"
-                      />
-                    </SwiperSlide>
-                  ))}
+                  {currentImages &&
+                    currentImages?.map(
+                      (img, i) => (
+                        console.log("ORIGINAL THUMB", img),
+                        (
+                          <SwiperSlide key={i}>
+                            <img
+                              src={`${img}.jpg`}
+                              loading="lazy"
+                              decoding="async"
+                              alt={`Thumbnail ${i + 1}`}
+                              className="object-cover w-full h-full cursor-pointer border-2 border-gray-300"
+                            />
+                          </SwiperSlide>
+                        )
+                      )
+                    )}
                 </Swiper>
               </div>
-              <img
-                src={`${currentProject.image}.jpg`}
-                alt={currentProject.title}
-                className="object-cover h-full w-full max-h-96"
-              />
             </div>
 
             <div className="p-6 space-y-4">
               <h1 className="text-2xl font-bold text-gray-500">
                 {currentProject.title}
               </h1>
-              <p className="text-sm text-gray-500">Role: {currentProject.role}</p>
+              <p className="text-sm text-gray-500">
+                Role: {currentProject.role}
+              </p>
               <p className="text-sm text-gray-500">
                 {currentProject.secondary_role}: {currentProject.name}
               </p>
-              <p className="text-sm text-gray-500">Company: {currentProject.company}</p>
-              {currentProject.notes && <p className="text-sm text-gray-500">{currentProject.notes}</p>}
+              <p className="text-sm text-gray-500">
+                Company: {currentProject.company}
+              </p>
+              {currentProject.notes && (
+                <p className="text-sm text-gray-500">{currentProject.notes}</p>
+              )}
             </div>
           </div>
-          : <div className="grid grid-cols-1 rounded-3xl shadow-lg overflow-hidden">
+        )}{" "}
+        {currentDrawing && (
+          <div className="grid grid-cols-1 rounded-3xl shadow-lg overflow-hidden">
             <div className="flex items-center justify-center bg-black">
               <img
                 src={`${currentDrawing?.image}.jpg`}
+                loading="lazy"
+                decoding="async"
                 alt={currentDrawing?.title}
                 className="object-cover h-full w-full max-h-[650px]"
               />
             </div>
           </div>
-        }
+        )}
       </motion.div>
-
     </div>
   );
 };

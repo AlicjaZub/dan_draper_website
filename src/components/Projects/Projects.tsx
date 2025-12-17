@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState } from "react";
 import { Filter } from "@/components/Filter";
 import { motion, AnimatePresence } from "framer-motion";
@@ -44,7 +45,10 @@ const Projects = () => {
         all={allProjects}
         setFiltered={setFiltered}
       />
-      <motion.div layout className="grid grid-cols-1 sm:grid-cols-2 w-full gap-6">
+      <motion.div
+        layout
+        className="grid grid-cols-1 sm:grid-cols-2 w-full gap-6"
+      >
         <AnimatePresence>
           {filtered.map((project: ProjectType) => {
             return <Project key={project.id} {...project} />;
