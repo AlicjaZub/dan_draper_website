@@ -45,7 +45,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
   if (!isOpen) return null;
   return (
     <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-lg flex items-center justify-center z-30"
+      className="fixed inset-0 bg-black/40 backdrop-blur-lg flex items-center justify-center z-80"
       onClick={onClose}
     >
       <motion.div
