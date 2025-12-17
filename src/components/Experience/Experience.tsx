@@ -35,23 +35,23 @@ const items = [
 
 const Item = ({ item, id }: any) => {
   return id % 2 === 0 ? (
-    <div className="mb-10 flex w-full items-center justify-between">
-      <div className="w-5/12 text-right">
-        <h3 className="text-lg font-bold">{item.title}</h3>
-        <span className="text-sm text-gray-400">{item.year}</span>
-        <p className="text-gray-600">{item.description}</p>
+    <div className="mb-10 flex w-full items-start md:items-center justify-between md:flex-row flex-col md:gap-0 gap-4">
+      <div className="w-full md:w-5/12 md:text-right pl-10 md:pl-0">
+        <h3 className="text-base md:text-lg font-bold">{item.title}</h3>
+        <span className="text-xs md:text-sm text-gray-400">{item.year}</span>
+        <p className="text-sm md:text-base text-gray-600">{item.description}</p>
       </div>
-      <div className="z-10 h-4 w-4 rounded-full bg-blue-600 border-2 border-white shadow-md"></div>
-      <div className="w-5/12"></div>
+      <div className="absolute md:static left-2 md:left-auto z-10 h-4 w-4 rounded-full bg-blue-600 border-2 border-white shadow-md"></div>
+      <div className="hidden md:block w-5/12"></div>
     </div>
   ) : (
-    <div className="mb-10 flex w-full items-center justify-between">
-      <div className="w-5/12"></div>
-      <div className="z-10 h-4 w-4 rounded-full bg-green-600 border-2 border-white shadow-md"></div>
-      <div className="w-5/12 text-left">
-        <h3 className="text-lg font-bold">{item.title}</h3>
-        <span className="text-sm text-gray-400">{item.year}</span>
-        <p className="text-gray-600">{item.description}</p>
+    <div className="mb-10 flex w-full items-start md:items-center justify-between md:flex-row flex-col md:gap-0 gap-4">
+      <div className="hidden md:block w-5/12"></div>
+      <div className="absolute md:static left-2 md:left-auto z-10 h-4 w-4 rounded-full bg-green-600 border-2 border-white shadow-md"></div>
+      <div className="w-full md:w-5/12 md:text-left pl-10 md:pl-0">
+        <h3 className="text-base md:text-lg font-bold">{item.title}</h3>
+        <span className="text-xs md:text-sm text-gray-400">{item.year}</span>
+        <p className="text-sm md:text-base text-gray-600">{item.description}</p>
       </div>
     </div>
   );
@@ -59,9 +59,14 @@ const Item = ({ item, id }: any) => {
 
 const Experience = () => {
   return (
-    <section id="experience" className="relative mx-auto w-full max-w-4xl">
-      <h1 className="text-xl text-center m-10">SELECTED EXPERIENCE</h1>
-      <div className="absolute left-1/2 h-full w-1 top-24 -translate-x-1/2 bg-gray-300 rounded-md"></div>
+    <section
+      id="experience"
+      className="relative mx-auto w-full max-w-4xl px-4 md:px-0"
+    >
+      <h1 className="text-lg md:text-xl text-center my-8 md:m-10">
+        SELECTED EXPERIENCE
+      </h1>
+      <div className="absolute left-4 md:left-1/2 top-16 md:top-20 h-full w-1 -translate-x-1/2 bg-gray-300 rounded-md"></div>
       {items.map((item, id) => {
         return <Item item={item} id={id} key={id} />;
       })}

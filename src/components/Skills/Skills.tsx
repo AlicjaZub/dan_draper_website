@@ -43,10 +43,7 @@ const Skills = () => {
         {skills.map((skill, id) => (
           <motion.div
             key={id}
-            className="
-              relative flex items-center justify-center
-              w-32 h-32 sm:w-36 sm:h-36
-            "
+            className="relative flex items-center justify-center w-32 h-32 sm:w-36 sm:h-36"
             style={{ transformStyle: "preserve-3d" }}
             initial={{ opacity: 0, scale: 0.7, rotateX: -20 }}
             animate={{ opacity: 1, scale: 1, rotateX: 0 }}
@@ -62,20 +59,14 @@ const Skills = () => {
                 src="vectorworks_badge.png"
                 loading="lazy"
                 decoding="async"
-                className="
-                w-full h-full object-contain
-                drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]
-              "
+                className="w-full h-full object-contain drop-shadow-[0_20px_30px_rgba(0,0,0,0.35)]"
                 alt={skill.name}
               />
             ) : (
               <div
-                className="
-                relative flex flex-col items-center justify-center text-center
-                w-full h-full rounded-full
-                bg-gradient-to-br from-red-500 via-green-400 via-blue-500 to-purple-600
-                p-[3px]
-              "
+                className="relative flex flex-col items-center justify-center text-center w-full h-full 
+                  rounded-full bg-gradient-to-br from-red-500 via-green-400 via-blue-500 to-purple-600 p-[3px]
+                "
               >
                 <div
                   className="
@@ -87,10 +78,10 @@ const Skills = () => {
                 >
                   <div
                     className="
-                    absolute inset-0 rounded-full
-                    bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]
-                    pointer-events-none
-                  "
+                      absolute inset-0 rounded-full
+                      bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.18),transparent_55%)]
+                      pointer-events-none
+                    "
                   />
 
                   {skill.icon && (

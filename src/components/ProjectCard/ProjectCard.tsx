@@ -56,7 +56,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
           duration: 2.0,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="bg-black rounded-2xl shadow-xl p-8 relative z-50 m-6 mt-16 md:p-6"
+        className="bg-black rounded-2xl shadow-xl p-8 relative z-50 m-6 mt-[30svh] md:p-6"
         onClick={(e) => e.stopPropagation()}
       >
         <button
