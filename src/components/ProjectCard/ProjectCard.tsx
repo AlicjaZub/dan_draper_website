@@ -56,7 +56,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
           duration: 2.0,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="bg-black rounded-2xl shadow-xl p-6 relative z-50 m-6 mt-12"
+        className="bg-black rounded-2xl shadow-xl p-8 relative z-50 m-6 mt-16 md:p-6"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -89,26 +89,22 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                   )}
 
                   {currentImages &&
-                    currentImages?.map(
-                      (img, i) => (
-                        console.log("ORIGINAL SWIPERIMAGE", img),
-                        (
-                          <SwiperSlide key={i}>
-                            <img
-                              src={`${img}.jpg`}
-                              loading="lazy"
-                              decoding="async"
-                              alt={`Slide ${i + 1}`}
-                              className="object-cover w-full h-full"
-                            />
-                          </SwiperSlide>
-                        )
-                      )
-                    )}
+                    currentImages?.map((img, i) => (
+                      <SwiperSlide key={i}>
+                        <img
+                          src={`${img}.jpg`}
+                          loading="lazy"
+                          decoding="async"
+                          alt={`Slide ${i + 1}`}
+                          className="object-cover w-full h-full"
+                        />
+                      </SwiperSlide>
+                    ))}
                 </Swiper>
 
                 <Swiper
                   onSwiper={setThumbsSwiper}
+                  watchSlidesProgress
                   slidesPerView={4}
                   spaceBetween={10}
                   className="w-full h-24"
@@ -126,22 +122,17 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                   )}
 
                   {currentImages &&
-                    currentImages?.map(
-                      (img, i) => (
-                        console.log("ORIGINAL THUMB", img),
-                        (
-                          <SwiperSlide key={i}>
-                            <img
-                              src={`${img}.jpg`}
-                              loading="lazy"
-                              decoding="async"
-                              alt={`Thumbnail ${i + 1}`}
-                              className="object-cover w-full h-full cursor-pointer border-2 border-gray-300"
-                            />
-                          </SwiperSlide>
-                        )
-                      )
-                    )}
+                    currentImages?.map((img, i) => (
+                      <SwiperSlide key={i}>
+                        <img
+                          src={`${img}.jpg`}
+                          loading="lazy"
+                          decoding="async"
+                          alt={`Thumbnail ${i + 1}`}
+                          className="object-cover w-full h-full cursor-pointer border-2 border-gray-300"
+                        />
+                      </SwiperSlide>
+                    ))}
                 </Swiper>
               </div>
             </div>
@@ -164,10 +155,10 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
               )}
             </div>
           </div>
-        )}{" "}
+        )}
         {currentDrawing && (
           <div className="grid grid-cols-1 rounded-3xl shadow-lg overflow-hidden">
-            <div className="flex items-center justify-center bg-black">
+            <div className="flex items-center justify-center bg-black p-4">
               <img
                 src={`${currentDrawing?.image}.jpg`}
                 loading="lazy"
