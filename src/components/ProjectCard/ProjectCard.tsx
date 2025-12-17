@@ -31,6 +31,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
     if (currentProject) {
       setCurrentImages(
         [
+          currentProject.image,
           currentProject.image1,
           currentProject.image2,
           currentProject.image3,
