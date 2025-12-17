@@ -56,7 +56,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
           duration: 2.0,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="bg-black rounded-2xl shadow-xl relative z-50 m-6 p-8 md:p-6 max-h-[85svh] overflow-y-auto overscroll-contain"
+        className="bg-black rounded-2xl shadow-xl relative z-50 mt-[5svh] m-2 p-6 pt-10 md:p-6 md:m-6 max-h-[85svh] overflow-y-auto overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         <button
@@ -72,11 +72,11 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                 <Swiper
                   modules={[Thumbs]}
                   thumbs={{ swiper: thumbsSwiper }}
-                  className="w-full h-96 mb-4"
+                  className="w-full h-auto md:h-96 mb-4"
                 >
                   {currentProject.video && (
                     <SwiperSlide>
-                      <div className="w-full h-full flex justify-center items-center bg-black">
+                      <div className="w-full h-auto md:h-full flex justify-center items-center bg-black">
                         <iframe
                           width="100%"
                           height="100%"
