@@ -76,7 +76,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                 >
                   {currentProject.video && (
                     <SwiperSlide>
-                      <div className="w-full h-auto md:h-full flex justify-center items-center bg-black">
+                      <div className="w-full h-[20svh] md:h-full flex justify-center items-center bg-black">
                         <iframe
                           width="100%"
                           height="100%"
