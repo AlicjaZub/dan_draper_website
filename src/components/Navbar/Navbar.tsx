@@ -6,7 +6,7 @@ const Navbar = () => {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-40 bg-black/80 backdrop-blur">
+    <header className="sticky top-0 z-30 bg-black/80 backdrop-blur">
       <div className="flex flex-wrap items-center justify-between px-4 py-4 md:px-10 md:py-8">
         {/* Logo */}
         <Link href="/" className="text-white text-sm md:text-base font-medium">

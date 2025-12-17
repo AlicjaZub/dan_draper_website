@@ -45,7 +45,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
   if (!isOpen) return null;
   return (
     <div
-      className="fixed inset-0 bg-black/40 backdrop-blur-lg flex items-center justify-center z-80"
+      className="fixed inset-0 bg-black/40 backdrop-blur-lg flex items-center justify-center z-40"
       onClick={onClose}
     >
       <motion.div
@@ -56,7 +56,7 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
           duration: 2.0,
           ease: [0.16, 1, 0.3, 1],
         }}
-        className="bg-black rounded-2xl shadow-xl relative z-80 mt-[5svh] m-2 p-4 pt-10 md:p-6 md:m-6 max-h-[85svh] overflow-y-auto overscroll-contain"
+        className="bg-black rounded-2xl shadow-xl relative z-40 mt-[5svh] m-2 p-4 pt-10 md:p-6 md:m-6 max-h-[85svh] overflow-y-auto overscroll-contain"
         onClick={(e) => e.stopPropagation()}
       >
         <button
