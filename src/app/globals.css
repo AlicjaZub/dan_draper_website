@@ -129,6 +129,7 @@ button.active {
 .container {
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .container .project-image {
