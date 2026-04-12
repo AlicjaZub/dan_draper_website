@@ -13,20 +13,21 @@ const settings = {
 const Home = () => {
   return (
       <section id="home" className="relative w-full overflow-hidden">
-        <Slider {...settings}>
-          <div className="w-full h-full">
-            <video
-              autoPlay
-              muted
-              loop
-              playsInline
-              className="w-full h-full object-cover md:h-screen"
-            >
-              <source src="/test.mp4" type="video/mp4" />
-              Your browser does not support HTML5 video.
-            </video>
-          </div>
-        </Slider>
+      <Slider {...settings}>
+        <div className="w-full h-full">
+          <div className="w-full h-[50vh] bg-gray-700"></div>
+          {/* <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="w-full h-full object-cover md:h-screen"
+          >
+            <source src="/test.mp4" type="video/mp4" />
+            Your browser does not support HTML5 video.
+          </video> */}
+        </div>
+      </Slider>
 
 
       {/* Text Overlay */}
@@ -50,7 +51,7 @@ const Home = () => {
           Daniel Draper
         </p>
         <p className="text-sm md:text-lg tracking-wide intro">
-          London Art Director
+          London Supervising Art Director
         </p>
       </div>
     </section>

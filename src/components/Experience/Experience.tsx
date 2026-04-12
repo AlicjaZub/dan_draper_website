@@ -2,6 +2,31 @@ import React from "react";
 
 const items = [
   {
+    title: "The Custom of the Country (Supervising)",
+    year: "2026",
+    description: "Studio Canal",
+  },
+  {
+    title: "Love of Your Life (Supervising)",
+    year: "2025",
+    description: "MGM",
+  },
+  {
+    title: "Four Kids Walk Into a Bank (Supervising)",
+    year: "2024/25",
+    description: "Miramax",
+  },
+  {
+    title: "Black Doves  (Supervising)",
+    year: "2023/24",
+    description: "Netflix",
+  },
+  {
+    title: "The Kitchen, Additional Photography (Supervising)",
+    year: "2023",
+    description: "Netflix",
+  },
+  {
     title: "The End We Start From (Supervising)",
     year: "2022",
     description: "Hera / Sunnymarch",

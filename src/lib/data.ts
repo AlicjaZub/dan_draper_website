@@ -2,7 +2,7 @@ import projects from "./projects.json";
 import drawings from "./drawings.json";
 
 export const getProjects = () => {
-  return projects;
+  return [...projects].reverse();
 };
 
 export const getProject = (id: number) => {
