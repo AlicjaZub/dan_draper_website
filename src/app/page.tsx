@@ -1,7 +1,7 @@
 "use client";
 import { Home } from "@/components/Home";
 import { Projects } from "@/components/Projects";
-import { Drawings } from "@/components/Drawings";
+// import { Drawings } from "@/components/Drawings";
 import { Experience } from "@/components/Experience";
 import { Contact } from "@/components/Contact";
 import { CV } from "@/components/CV";
@@ -14,7 +14,7 @@ export default function Page() {
       <div className="mx-4 md:mx-16">
         <Projects />
         {/* <hr className="border-gray-500 m-8 w-full" /> */}
-        <Drawings />
+        {/* <Drawings /> */}
         <Experience />
         <Skills />
       </div>

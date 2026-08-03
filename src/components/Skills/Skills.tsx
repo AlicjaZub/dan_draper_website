@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { SiAdobephotoshop, SiRhinoceros, SiSketchup } from "react-icons/si";
+import { SiRhinoceros, SiSketchup } from "react-icons/si";
+import { BiLogoAdobe } from "react-icons/bi";
 import { FaPencilAlt } from "react-icons/fa";
 import { GiJapan } from "react-icons/gi";
 
@@ -21,7 +22,7 @@ const skills = [
   },
   {
     name: "Adobe Suite",
-    icon: <SiAdobephotoshop size={40} />,
+    icon: <BiLogoAdobe size={40} />,
     bgColor: "bg-red-600",
   },
   {
