@@ -1,5 +1,5 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { Filter } from "@/components/Filter";
 import { motion, AnimatePresence } from "framer-motion";
 import { Project } from "@/components/Project";
@@ -27,24 +27,17 @@ export type ProjectType = {
 };
 
 const Projects = () => {
-  const [allProjects, setAllProjects] = useState<ProjectType[]>([]);
-  const [filtered, setFiltered] = useState<ProjectType[]>([]);
+  const allProjects = getProjects() as ProjectType[];
   const [activeGenre, setActiveGenre] = useState("all");
 
-  useEffect(() => {
-    const projects = getProjects() as ProjectType[];
-    setAllProjects(projects);
-    setFiltered(projects);
-  }, []);
+  const filtered =
+    activeGenre === "all"
+      ? allProjects
+      : allProjects.filter((project) => project.type.includes(activeGenre));
 
   return (
     <section id="projects" className="py-4 md:py-8 w-full px-2 md:px-16">
-      <Filter
-        activeGenre={activeGenre}
-        setActiveGenre={setActiveGenre}
-        all={allProjects}
-        setFiltered={setFiltered}
-      />
+      <Filter activeGenre={activeGenre} setActiveGenre={setActiveGenre} />
       <motion.div
         layout
         className="grid grid-cols-1 sm:grid-cols-2 w-full gap-6"

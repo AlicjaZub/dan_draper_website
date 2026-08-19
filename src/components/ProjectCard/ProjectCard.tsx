@@ -1,7 +1,7 @@
 "use client";
 import { motion } from "framer-motion";
 import { getProject, getDrawing } from "@/lib/data";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { ProjectType } from "../Projects/Projects";
 import { DrawingType } from "../Drawings/Drawings";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -10,37 +10,22 @@ import "swiper/css";
 import "swiper/css/thumbs";
 
 const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
-  const [currentProject, setCurrentProject] = useState<ProjectType | null>(
-    null
-  );
-  const [currentDrawing, setCurrentDrawing] = useState<DrawingType | null>(
-    null
-  );
-  const [currentImages, setCurrentImages] = useState<String[] | null>([]);
   const [thumbsSwiper, setThumbsSwiper] = useState<any>(null);
 
-  useEffect(() => {
-    if (type === "drawing") {
-      setCurrentDrawing(getDrawing(id) as DrawingType);
-    } else {
-      setCurrentProject(getProject(id) as ProjectType);
-    }
-  }, [id, type]);
-
-  useEffect(() => {
-    if (currentProject) {
-      setCurrentImages(
-        [
-          currentProject.image,
-          currentProject.image1,
-          currentProject.image2,
-          currentProject.image3,
-          currentProject.image4,
-          currentProject.image5,
-        ].filter(Boolean) as string[]
-      );
-    }
-  }, [currentProject]);
+  const currentDrawing =
+    type === "drawing" ? (getDrawing(id) as DrawingType) : null;
+  const currentProject =
+    type !== "drawing" ? (getProject(id) as ProjectType) : null;
+  const currentImages = currentProject
+    ? ([
+        currentProject.image,
+        currentProject.image1,
+        currentProject.image2,
+        currentProject.image3,
+        currentProject.image4,
+        currentProject.image5,
+      ].filter(Boolean) as string[])
+    : [];
 
   if (!isOpen) return null;
   return (
@@ -88,18 +73,17 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                     </SwiperSlide>
                   )}
 
-                  {currentImages &&
-                    currentImages?.map((img, i) => (
-                      <SwiperSlide key={i}>
-                        <img
-                          src={`${img}.jpg`}
-                          loading="lazy"
-                          decoding="async"
-                          alt={`Slide ${i + 1}`}
-                          className="object-cover w-full h-full"
-                        />
-                      </SwiperSlide>
-                    ))}
+                  {currentImages.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <img
+                        src={`${img}.jpg`}
+                        loading="lazy"
+                        decoding="async"
+                        alt={`Slide ${i + 1}`}
+                        className="object-cover w-full h-full"
+                      />
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
 
                 <Swiper
@@ -120,18 +104,17 @@ const ProjectCard = ({ isOpen, onClose, id, type }: any) => {
                     </SwiperSlide>
                   )}
 
-                  {currentImages &&
-                    currentImages?.map((img, i) => (
-                      <SwiperSlide key={i}>
-                        <img
-                          src={`${img}.jpg`}
-                          loading="lazy"
-                          decoding="async"
-                          alt={`Thumbnail ${i + 1}`}
-                          className="object-cover w-full h-full cursor-pointer"
-                        />
-                      </SwiperSlide>
-                    ))}
+                  {currentImages.map((img, i) => (
+                    <SwiperSlide key={i}>
+                      <img
+                        src={`${img}.jpg`}
+                        loading="lazy"
+                        decoding="async"
+                        alt={`Thumbnail ${i + 1}`}
+                        className="object-cover w-full h-full cursor-pointer"
+                      />
+                    </SwiperSlide>
+                  ))}
                 </Swiper>
               </div>
             </div>

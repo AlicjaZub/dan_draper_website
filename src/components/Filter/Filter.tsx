@@ -1,15 +1,12 @@
-import React, { useEffect } from "react";
+import React from "react";
 
-const Filter = ({ setActiveGenre, activeGenre, setFiltered, all }: any) => {
-  useEffect(() => {
-    const updatedFiltered =
-      activeGenre === "all"
-        ? all
-        : all.filter((project: any) => project.type.includes(activeGenre));
-
-    setFiltered(updatedFiltered);
-  }, [activeGenre, all]);
-
+const Filter = ({
+  setActiveGenre,
+  activeGenre,
+}: {
+  setActiveGenre: (genre: string) => void;
+  activeGenre: string;
+}) => {
   const genres = [
     { code: "all", title: "All" },
     { code: "TV", title: "Film/TV" },
